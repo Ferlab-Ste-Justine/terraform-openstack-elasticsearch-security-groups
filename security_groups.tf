@@ -1,23 +1,23 @@
 resource "openstack_networking_secgroup_v2" "es_master" {
-  name                 = var.namespace == "" ? "es-master" : "es-master-${var.namespace}"
+  name                 = var.namespace == "" ? "es-master" : "${var.namespace}-es-master"
   description          = "Security group for es masters"
   delete_default_rules = true
 }
 
 resource "openstack_networking_secgroup_v2" "es_worker" {
-  name                 = var.namespace == "" ? "es-worker" : "es-worker-${var.namespace}"
-  description          = "Security group for es wprlers"
+  name                 = var.namespace == "" ? "es-worker" : "${var.namespace}-es-worker"
+  description          = "Security group for es workers"
   delete_default_rules = true
 }
 
 resource "openstack_networking_secgroup_v2" "es_client" {
-  name                 = var.namespace == "" ? "es-client" : "es-client-${var.namespace}"
+  name                 = var.namespace == "" ? "es-client" : "${var.namespace}-es-client"
   description          = "Security group for the clients connecting to the es cluster"
   delete_default_rules = true
 }
 
 resource "openstack_networking_secgroup_v2" "es_bastion" {
-  name                 = var.namespace == "" ? "es-bastion" : "es-bastion-${var.namespace}"
+  name                 = var.namespace == "" ? "es-bastion" : "${var.namespace}-es-bastion"
   description          = "Security group for the bastion connecting to es members"
   delete_default_rules = true
 }
