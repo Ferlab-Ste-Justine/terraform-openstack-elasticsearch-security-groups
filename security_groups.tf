@@ -153,7 +153,7 @@ resource "openstack_networking_secgroup_rule_v2" "client_icmp_master_access_v4" 
 resource "openstack_networking_secgroup_rule_v2" "client_icmp_master_access_v6" {
   direction         = "ingress"
   ethertype         = "IPv6"
-  protocol          = "icmp"
+  protocol          = "ipv6-icmp"
   remote_group_id  = openstack_networking_secgroup_v2.es_client.id
   security_group_id = openstack_networking_secgroup_v2.es_master.id
 }
@@ -169,7 +169,7 @@ resource "openstack_networking_secgroup_rule_v2" "client_icmp_worker_access_v4" 
 resource "openstack_networking_secgroup_rule_v2" "client_icmp_worker_access_v6" {
   direction         = "ingress"
   ethertype         = "IPv6"
-  protocol          = "icmp"
+  protocol          = "ipv6-icmp"
   remote_group_id  = openstack_networking_secgroup_v2.es_client.id
   security_group_id = openstack_networking_secgroup_v2.es_worker.id
 }
@@ -185,7 +185,7 @@ resource "openstack_networking_secgroup_rule_v2" "bastion_icmp_master_access_v4"
 resource "openstack_networking_secgroup_rule_v2" "bastion_icmp_master_access_v6" {
   direction         = "ingress"
   ethertype         = "IPv6"
-  protocol          = "icmp"
+  protocol          = "ipv6-icmp"
   remote_group_id  = openstack_networking_secgroup_v2.es_bastion.id
   security_group_id = openstack_networking_secgroup_v2.es_master.id
 }
@@ -201,7 +201,7 @@ resource "openstack_networking_secgroup_rule_v2" "bastion_icmp_worker_access_v4"
 resource "openstack_networking_secgroup_rule_v2" "bastion_icmp_worker_access_v6" {
   direction         = "ingress"
   ethertype         = "IPv6"
-  protocol          = "icmp"
+  protocol          = "ipv6-icmp"
   remote_group_id  = openstack_networking_secgroup_v2.es_bastion.id
   security_group_id = openstack_networking_secgroup_v2.es_worker.id
 }
